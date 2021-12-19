@@ -1,26 +1,27 @@
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import time
+from termcolor import colored
 
 options = Options()
-options.headless = False
+options.headless = True
 driver = webdriver.Chrome(options=options, executable_path=r'chromedriver.exe')
 
 
 driver.get("https://www.daraz.com.bd/")
-time.sleep(5)
-
+time.sleep(0.1)
+print(colored("into website", "red"))
 search = driver.find_element_by_id("q")
 search.click()
-time.sleep(5)
+time.sleep(0.1)
 search.send_keys("Walton 64GB Class 10/U3 Micro SDHC/SDXC Memory Card with Adapter")
 time.sleep(5)
 
 
 searchbuttonclick = driver.find_element_by_class_name("search-box__button--1oH7")
 searchbuttonclick.click()
-time.sleep(5)
-
+time.sleep(0.1)
+print(colored("search done", "red"))
 
 clicksdcard=driver.find_element_by_link_text("Walton 64GB Class 10/U3 Micro SDHC/SDXC Memory Card with Adapter")
 clicksdcard.click()
